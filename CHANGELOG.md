@@ -12,4 +12,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Models for application structure
-- Readme Contributing and Changelog 
+- Readme, gitignore, Contributing and Changelog 
