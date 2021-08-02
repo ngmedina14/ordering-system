@@ -8,6 +8,7 @@
 >	- Badges
 >	- Readthedocs
 >	- Explantion in every function(Description in Comments)
+>	- Unit Testing
 > - Using stardard coding to all languages with references.
 >   - CSS (SASS)
 >   - JS (jquery)
