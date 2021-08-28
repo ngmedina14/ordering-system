@@ -1,22 +1,10 @@
-// Menu Item Table
-// *Name
-// *Description
-// *Image
-// *CategoryID
-// *Price
-// *Dine In
-// *Take Out
-// *Availability
-// *Hide Everywhere
-// *Hide on Web
-// *Featured
-// *Code
-// *DiscountID //Preset purpose
-// *Time Availability
-// *Position
-// *TaxID
-// *ModifierID
-// *ItemOptionID
+/*
+Menu item
+
+The MenuItem collects all the Menu item Data and used to show it in the user end as Menu
+
+Menu Item is used by Payment model, Order Model, Order Detail Model
+*/
 package models
 
 import "github.com/uadmin/uadmin"

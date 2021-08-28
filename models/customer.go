@@ -1,6 +1,16 @@
+/*
+Welcome to the Ordering System Documentation
+
+Customer Model
+
+this is to collect their data and use it as identifier
+hello world
+*/
 package models
 
-import "github.com/uadmin/uadmin"
+import (
+	"github.com/uadmin/uadmin"
+)
 
 //Customer is the person ordering before entering the Menu Category
 type Customer struct {
@@ -10,6 +20,7 @@ type Customer struct {
 	FacebookAPI string `sql:"type:text;"`
 }
 
+//String function used as Identifier
 func (c *Customer) String() string {
 	return c.GuestName
 }

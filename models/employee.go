@@ -1,3 +1,12 @@
+/*
+Employee model
+
+Employee model collects the data of the staff
+
+also this model provide them access to the system
+
+and used to create cash drawer
+*/
 package models
 
 import "github.com/uadmin/uadmin"
