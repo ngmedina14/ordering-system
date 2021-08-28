@@ -1,6 +1,9 @@
 language: go
 
 go:
-  - 1.16.x
+  - "1.16.5"
 
 go_import_path: github.com/ngmedina14/OrderingSystem
+
+before_install: 
+ - sudo apt-get install gcc
