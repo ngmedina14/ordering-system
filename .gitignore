@@ -2,5 +2,4 @@ go.mod
 go.sum
 syslog.log
 OrderingSystem.exe
-OrderingSystem
 uadmin.db
