@@ -10,6 +10,6 @@ before_install:
 after_success:
   - docker build -t ngmedina14/ordering-system .
   # log in to the docker CLI
-  - echo "$DOCKERPASSWORD" | docker login -u "$DOCKERID" --password-stdin
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # take those images and push them to docker hub
   - docker push ngmedina14/ordering-system
