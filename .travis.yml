@@ -5,6 +5,3 @@ go:
 
 go_import_path: github.com/ngmedina14/OrderingSystem
 
-before_install: 
- - sudo apt-get install gcc
- - env GO111MODULE=on go build
