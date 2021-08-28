@@ -1,0 +1,17 @@
+sudo: required
+services:
+  - docker
+
+language: go
+go:
+  - "1.17"
+
+before_install:
+  - docker build -t ngmedina14/ordering-system .
+
+after_success:
+  - docker build -t ngmedina14/ordering-system .
+  # log in to the docker CLI
+  - echo "$DOCKERPASSWORD" | docker login -u "$DOCKERID" --password-stdin
+  # take those images and push them to docker hub
+  - docker push ngmedina14/ordering-system
