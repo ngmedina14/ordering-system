@@ -1,3 +1,5 @@
 syslog.log
 OrderingSystem.exe
 uadmin.db
+go.mod
+go.sum
