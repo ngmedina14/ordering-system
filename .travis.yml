@@ -1,15 +1,10 @@
-sudo: required
-services:
-  - docker
 
 language: go
 
-before_install:
-  - docker build -t ngmedina14/ordering-system .
+go:
+  - 1.12.x
 
-after_success:
-  - docker build -t ngmedina14/ordering-system .
-  # log in to the docker CLI
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  # take those images and push them to docker hub
-  - docker push ngmedina14/ordering-system
+go_import_path: github.com/ngmedina14/ordering-system
+
+# Skip dependency fetch. We store all dependencies under vendor/.
+install: true
