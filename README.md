@@ -22,7 +22,7 @@
 [![Go Report Card](https://goreportcard.com/badge/github.com/ngmedina14/ordering-system)](https://goreportcard.com/report/github.com/ngmedina14/ordering-system)
 [![Go Reference](https://pkg.go.dev/badge/github.com/ngmedina14/ordering-system.svg)](https://pkg.go.dev/github.com/ngmedina14/ordering-system)
 [![codecov](https://codecov.io/gh/ngmedina14/ordering-system/branch/master/graph/badge.svg?token=KJ5LKK67EF)](https://codecov.io/gh/ngmedina14/ordering-system)
-[![Build Status](https://travis-ci.org/ngmedina14/ordering-system.svg?branch=master)](https://travis-ci.org/ngmedina14/ordering-system)
+[![Build Status](https://app.travis-ci.com/ngmedina14/ordering-system.svg?branch=master)](https://travis-ci.com/ngmedina14/ordering-system)
 
 
 Personal Project of - Neil Medina [ngmedina14@gmail.com](https://github.com/ngmedina14 "ngmedina14@gmail.com") (*Credit Creator*)
