@@ -2,9 +2,9 @@
 language: go
 
 go:
-  - 1.12.x
+  - 1.17.0
 
-go_import_path: github.com/ngmedina14/ordering-system
+go_import_path: github.com/ngmedina14/OrderingSystem
 
 # Skip dependency fetch. We store all dependencies under vendor/.
 install: true
