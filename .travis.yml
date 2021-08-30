@@ -1,6 +1,9 @@
 
 language: go
 
+go:
+- 1.17.x
+
 go_import_path: github.com/ngmedina14/OrderingSystem
 
 # Skip dependency fetch. We store all dependencies under vendor/.
