@@ -31,7 +31,7 @@ func main() {
 		models.Payment{},
 		models.Tax{},
 	)
-
+	uadmin.RootURL = "/admin/"
 	// http.HandleFunc("/console/", uadmin.Handler(views.ConsoleHandler))
 	// http.HandleFunc("/console/login/", uadmin.Handler(views.LoginHandler))
 	http.HandleFunc("/", uadmin.Handler(views.PageHandler))
