@@ -1,0 +1,18 @@
+version: "3"  # optional since v1.27.0
+services:
+  web:
+    # build: 
+    #   context: . #Dockerfile
+    #   #dockerfile: Dockerfile.local
+    image: ngmedina14/ordering-system
+    ports:
+      - "8080:8080"
+    volumes:
+      - OSBindVolume:/go/src/github.com/OrderingSystem
+    restart: unless-stopped
+volumes:
+  OSBindVolume:
+    driver_opts:
+        type: none
+        device: ${PWD} #/home/neil/go/src/github.com/ngmedina14/OrderingSystem
+        o: bind
