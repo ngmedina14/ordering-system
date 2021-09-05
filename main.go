@@ -17,7 +17,7 @@ import (
 )
 
 func main() {
-
+	DBConfig()
 	uadmin.Register(
 		models.ComboItem{},
 		models.Customer{},
@@ -39,6 +39,19 @@ func main() {
 	// http.HandleFunc("/api/", uadmin.Handler(api.APIHandler))
 	// http.HandleFunc("/pos/", uadmin.Handler(views.POSHandler))
 	// http.HandleFunc("/pos/login", uadmin.Handler(views.POSLoginHandler))
-
 	uadmin.StartServer()
+}
+
+// DBConfig !
+func DBConfig() {
+	// Change DB Setting to MySQL
+	uadmin.Database = &uadmin.DBSettings{
+		Type: "mysql",
+		Host: "orderingsystem_mysql_1",
+		// Host:     "192.168.150.13",
+		Name:     "ordering-system",
+		User:     "root",
+		Password: "NeilGwapo100%",
+		Port:     3306,
+	}
 }

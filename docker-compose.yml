@@ -1,18 +1,37 @@
 version: "3"  # optional since v1.27.0
 services:
+  mysql:
+    image: mysql/mysql-server:8.0.26
+    expose:
+      - "3306"
+    environment: 
+      MYSQL_ROOT_PASSWORD: "NeilGwapo100%"
+      MYSQL_ROOT_HOST: "%"
+    volumes: 
+      - MysqlBindVolume:/var/lib/mysql
+    restart: always
   web:
     # build: 
     #   context: . #Dockerfile
     #   #dockerfile: Dockerfile.local
+    privileged: true
     image: ngmedina14/ordering-system
     ports:
       - "8080:8080"
     volumes:
-      - OSBindVolume:/go/src/github.com/OrderingSystem
+      - WebBindVolume:/go/src/github.com/OrderingSystem
     restart: unless-stopped
+    depends_on: 
+      - mysql
 volumes:
-  OSBindVolume:
+  WebBindVolume:
     driver_opts:
         type: none
         device: ${PWD} #/home/neil/go/src/github.com/ngmedina14/OrderingSystem
         o: bind
+  MysqlBindVolume:
+    driver_opts:
+        type: none
+        device: ${PWD}/data #/home/neil/go/src/github.com/ngmedina14/OrderingSystem
+        o: bind
+    
