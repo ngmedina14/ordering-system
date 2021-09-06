@@ -22,3 +22,6 @@ vendor/
 ### Go Patch ###
 /vendor/
 /Godeps/
+
+# Docker
+data/

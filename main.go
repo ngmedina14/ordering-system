@@ -10,6 +10,7 @@ package main
 
 import (
 	"net/http"
+	"os"
 
 	"github.com/ngmedina14/OrderingSystem/models"
 	"github.com/ngmedina14/OrderingSystem/views"
@@ -18,6 +19,28 @@ import (
 
 func main() {
 	DBConfig()
+	RegisterModels()
+	RegisterInlines()
+	PageHandlers()
+	WebSockets()
+	CustomModelData()
+	PageSettings()
+}
+
+// DBConfig !
+func DBConfig() {
+	// Change DB Setting to MySQL
+	uadmin.Database = &uadmin.DBSettings{
+		Type:     "mysql",
+		Host:     os.Getenv("MYSQL_ROOT_HOST"),
+		Name:     os.Getenv("MYSQL_DATABASE"),
+		User:     os.Getenv("MYSQL_USER"),
+		Password: os.Getenv("MYSQL_ROOT_PASSWORD"),
+		Port:     3306,
+	}
+}
+
+func RegisterModels() {
 	uadmin.Register(
 		models.ComboItem{},
 		models.Customer{},
@@ -31,7 +54,11 @@ func main() {
 		models.Payment{},
 		models.Tax{},
 	)
-	uadmin.RootURL = "/admin/"
+}
+func RegisterInlines() {
+
+}
+func PageHandlers() {
 	// http.HandleFunc("/console/", uadmin.Handler(views.ConsoleHandler))
 	// http.HandleFunc("/console/login/", uadmin.Handler(views.LoginHandler))
 	http.HandleFunc("/", uadmin.Handler(views.PageHandler))
@@ -39,19 +66,18 @@ func main() {
 	// http.HandleFunc("/api/", uadmin.Handler(api.APIHandler))
 	// http.HandleFunc("/pos/", uadmin.Handler(views.POSHandler))
 	// http.HandleFunc("/pos/login", uadmin.Handler(views.POSLoginHandler))
-	uadmin.StartServer()
+}
+func WebSockets() {
+
+}
+func CustomModelData() {
+
 }
 
-// DBConfig !
-func DBConfig() {
-	// Change DB Setting to MySQL
-	uadmin.Database = &uadmin.DBSettings{
-		Type: "mysql",
-		Host: "orderingsystem_mysql_1",
-		// Host:     "192.168.150.13",
-		Name:     "ordering-system",
-		User:     "root",
-		Password: "NeilGwapo100%",
-		Port:     3306,
-	}
+func PageSettings() {
+	uadmin.Port = 8080
+	uadmin.RootURL = "/admin/"
+	uadmin.SiteName = "Ordering System"
+
+	uadmin.StartServer()
 }

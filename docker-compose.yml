@@ -5,17 +5,25 @@ services:
     expose:
       - "3306"
     environment: 
+      MYSQL_USER: "root"
       MYSQL_ROOT_PASSWORD: "NeilGwapo100%"
       MYSQL_ROOT_HOST: "%"
+      MYSQL_DATABASE: "ordering-system"
     volumes: 
+      #- /var/lib/mysql:/var/lib/mysql #Docker Play Setup Only
       - MysqlBindVolume:/var/lib/mysql
     restart: always
   web:
-    # build: 
-    #   context: . #Dockerfile
+    build: 
+      context: . #Dockerfile
     #   #dockerfile: Dockerfile.local
     privileged: true
-    image: ngmedina14/ordering-system
+    # image: ngmedina14/ordering-system
+    environment: 
+      - MYSQL_USER=root
+      - MYSQL_ROOT_PASSWORD=NeilGwapo100%
+      - MYSQL_ROOT_HOST=%
+      - MYSQL_DATABASE=ordering-system
     ports:
       - "8080:8080"
     volumes:
