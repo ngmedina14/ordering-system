@@ -1,4 +1,4 @@
-  1 version: "3"  # optional since v1.27.0
+  1 version: "3.5"  # optional since v1.27.0
   2 services:
   3   mysql:
   4     image: mysql/mysql-server:8.0.26
@@ -25,7 +25,9 @@
  25       - MYSQL_ROOT_HOST=ordering-system_mysql
  26       - MYSQL_DATABASE=ordering-system
  27     ports:
- 28       - "8080:8080"
+          - target: 8080
+            published: 8080
+            mode: host
  29     volumes:
  30       - WebBindVolume:/go/src/github.com/OrderingSystem
  31     restart: unless-stopped
