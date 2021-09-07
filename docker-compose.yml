@@ -1,45 +1,44 @@
-version: "3"  # optional since v1.27.0
-services:
-  mysql:
-    image: mysql/mysql-server:8.0.26
-    expose:
-      - "3306"
-    environment: 
-      MYSQL_USER: "root"
-      MYSQL_ROOT_PASSWORD: "NeilGwapo100%"
-      MYSQL_ROOT_HOST: "%"
-      MYSQL_DATABASE: "ordering-system"
-    volumes: 
-      #- /var/lib/mysql:/var/lib/mysql #Docker Play Setup Only
-      - MysqlBindVolume:/var/lib/mysql
-    restart: always
-  web:
-    build: 
-      context: . #Dockerfile
-    #   #dockerfile: Dockerfile.local
-    privileged: true
-    # image: ngmedina14/ordering-system
-    environment: 
-      - MYSQL_USER=root
-      - MYSQL_ROOT_PASSWORD=NeilGwapo100%
-      - MYSQL_ROOT_HOST=ordering-system_mysql_1
-      - MYSQL_DATABASE=ordering-system
-    ports:
-      - "8080:8080"
-    volumes:
-      - WebBindVolume:/go/src/github.com/OrderingSystem
-    restart: unless-stopped
-    depends_on: 
-      - mysql
-volumes:
-  WebBindVolume:
-    driver_opts:
-        type: none
-        device: ${PWD} #/home/neil/go/src/github.com/ngmedina14/OrderingSystem
-        o: bind
-  MysqlBindVolume:
-    driver_opts:
-        type: none
-        device: ${PWD}/data #/home/neil/go/src/github.com/ngmedina14/OrderingSystem
-        o: bind
-    
+  1 version: "3"  # optional since v1.27.0
+  2 services:
+  3   mysql:
+  4     image: mysql/mysql-server:8.0.26
+  5     ports:
+  6       - "3306:3306"
+  7     environment:
+  8       MYSQL_USER: "root"
+  9       MYSQL_ROOT_PASSWORD: "NeilGwapo100%"
+ 10       MYSQL_ROOT_HOST: "%"
+ 11       MYSQL_DATABASE: "ordering-system"
+ 12     volumes:
+ 13       - /var/lib/mysql:/var/lib/mysql #Docker Play Setup Only
+ 14       #- MysqlBindVolume:/var/lib/mysql
+ 15     restart: always
+ 16   web:
+ 17     #build: 
+ 18     #  context: . #Dockerfile
+ 19     #   #dockerfile: Dockerfile.local
+ 20     #privileged: true
+ 21     image: ngmedina14/ordering-system
+ 22     environment:
+ 23       - MYSQL_USER=root
+ 24       - MYSQL_ROOT_PASSWORD=NeilGwapo100%
+ 25       - MYSQL_ROOT_HOST=ordering-system_mysql
+ 26       - MYSQL_DATABASE=ordering-system
+ 27     ports:
+ 28       - "8080:8080"
+ 29     volumes:
+ 30       - WebBindVolume:/go/src/github.com/OrderingSystem
+ 31     restart: unless-stopped
+ 32     depends_on:
+ 33       - mysql
+ 34 volumes:
+ 35   WebBindVolume:
+ 36     driver_opts:
+ 37         type: none
+ 38         device: ${PWD} #/home/neil/go/src/github.com/ngmedina14/OrderingSystem
+ 39         o: bind
+ 40   MysqlBindVolume:
+ 41     driver_opts:
+ 42         type: none
+ 43         device: ${PWD}/data #/home/neil/go/src/github.com/ngmedina14/OrderingSystem
+ 44         o: bind
