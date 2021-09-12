@@ -1,0 +1,20 @@
+#run other app in travis VM using "service"
+services:
+  - docker
+
+language: go
+
+go:
+- 1.17.x
+
+go_import_path: github.com/ngmedina14/ordering-system
+
+# Skip dependency fetch. We store all dependencies under vendor/.
+install: true
+
+after_success:
+  - docker build -t ngmedina14/ordering-system .
+  # log in to the docker CLI
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  # take those images and push them to docker hub
+  - docker push ngmedina14/ordering-system

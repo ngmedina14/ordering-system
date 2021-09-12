@@ -12,8 +12,8 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/ngmedina14/OrderingSystem/models"
-	"github.com/ngmedina14/OrderingSystem/views"
+	"github.com/ngmedina14/ordering-system/models"
+	"github.com/ngmedina14/ordering-system/views"
 	"github.com/uadmin/uadmin"
 )
 
